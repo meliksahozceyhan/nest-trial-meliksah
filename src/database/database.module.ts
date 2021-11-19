@@ -22,8 +22,8 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies'
 				cli: {
 					migrationsDir: 'src/migration'
 				},
-				synchronize: true,
-				logging: false,
+				synchronize: false,
+				logging: true,
 				namingStrategy: new SnakeNamingStrategy()
 			})
 		})

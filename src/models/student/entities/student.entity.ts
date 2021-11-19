@@ -1,6 +1,7 @@
-import { AfterLoad, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { AfterLoad, Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 import { IsNotEmpty, Length } from 'class-validator'
 import { Classroom } from 'src/models/classroom/entities/classroom.entity'
+import { join } from 'path/posix'
 
 @Entity()
 export class Student {
@@ -26,7 +27,7 @@ export class Student {
 	nameSurname: string
 
 	@IsNotEmpty()
-	@Column({ nullable: false })
+	@Column({ nullable: false, name: 'student_number' })
 	studentNumber: number
 
 	@Column({ name: 'birth_date' })
@@ -37,6 +38,7 @@ export class Student {
 	grade: number
 
 	@ManyToOne(() => Classroom, (classroom) => classroom.students, { nullable: false, eager: true })
+	@JoinColumn({ name: 'classroom_id' })
 	classroom: Classroom
 
 	@AfterLoad()

@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { TypeOrmCrudService } from '@nestjsx/crud-typeorm'
 import { getRepository, Repository } from 'typeorm'
-import { Student } from '../student/entities/student.entity'
 import { Classroom } from './entities/classroom.entity'
 
 @Injectable()

@@ -30,6 +30,6 @@ export class Classroom {
 	@Column({ default: 0, name: 'student_count' })
 	studentCount: number
 
-	@OneToMany(() => Student, (student) => student.classroom)
+	@OneToMany(() => Student, (student) => student.classroom, { eager: true })
 	students: Student[]
 }
