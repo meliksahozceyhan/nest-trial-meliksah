@@ -17,13 +17,13 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies'
 				database: configService.get('database.database'),
 				schema: configService.get('database.schema'),
 				entities: ['dist/**/*.entity.js'],
-				migrationsTableName: 'migration',
-				migrations: ['dist/**/*.migration{.ts,.js}'],
+				migrationsTableName: 'typeorm_migrations',
+				migrations: ['src/**/*.migration{.ts,.js}'],
 				cli: {
 					migrationsDir: 'src/migration'
 				},
 				synchronize: false,
-				logging: true,
+				logging: false,
 				namingStrategy: new SnakeNamingStrategy()
 			})
 		})
