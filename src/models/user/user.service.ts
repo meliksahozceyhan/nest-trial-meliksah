@@ -19,4 +19,8 @@ export class UserService extends TypeOrmCrudService<User> {
 	public async saveUser(user: User): Promise<User> {
 		return await this.userRepo.save(user)
 	}
+
+	public async doNothing(): Promise<void> {
+		//this code block does nothing just to test git commits.
+	}
 }
